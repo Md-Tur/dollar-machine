@@ -34,20 +34,17 @@ document.getElementById('calculate-button').addEventListener('click', function (
                 balance.innerText = remainingBalance;
             }
             else {
-                console.log("big")
                 alert("big");
             }
 
         }
         else {
             alert("negative");
-            console.log("negative");
         }
 
     }
     else {
         alert("string");
-        console.log("string");
     }
 
 })
@@ -61,10 +58,25 @@ document.getElementById('save-button').addEventListener('click', function () {
     const remainingBalance = totalIncome - totalCost;
     const savingsPercent = document.getElementById('savings-percent');
     const saved = parseFloat(savingsPercent.value);
-    const finalSaving = (totalIncome * saved) / 100;
-    let moneySaved = document.getElementById('savings');
-    moneySaved.innerText = finalSaving;
-    const afterSaving = remainingBalance - finalSaving;
-    const savingsText = document.getElementById('after-savings');
-    savingsText.innerText = afterSaving;
+
+    if (!isNaN(saved) && saved > 0) {
+        const finalSaving = (totalIncome * saved) / 100;
+        let moneySaved = document.getElementById('savings');
+        moneySaved.innerText = finalSaving;
+
+
+        if (remainingBalance >= finalSaving) {
+            const afterSaving = remainingBalance - finalSaving;
+            const savingsText = document.getElementById('after-savings');
+            savingsText.innerText = afterSaving;
+        }
+        else {
+            alert("big");
+        }
+
+    }
+    else {
+        alert("string or negative");
+    }
+
 })
