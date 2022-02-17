@@ -34,17 +34,18 @@ document.getElementById('calculate-button').addEventListener('click', function (
                 balance.innerText = remainingBalance;
             }
             else {
-                alert("big");
+
+                alert("Your cost can't be greater than your earning");
             }
 
         }
         else {
-            alert("negative");
+            alert("Please enter any positive value here");
         }
 
     }
     else {
-        alert("string");
+        alert("Please don't input any string type value here");
     }
 
 })
@@ -61,22 +62,20 @@ document.getElementById('save-button').addEventListener('click', function () {
 
     if (!isNaN(saved) && saved > 0) {
         const finalSaving = (totalIncome * saved) / 100;
-        let moneySaved = document.getElementById('savings');
-        moneySaved.innerText = finalSaving;
-
-
         if (remainingBalance >= finalSaving) {
             const afterSaving = remainingBalance - finalSaving;
             const savingsText = document.getElementById('after-savings');
             savingsText.innerText = afterSaving;
+            let moneySaved = document.getElementById('savings');
+            moneySaved.innerText = finalSaving;
         }
         else {
-            alert("big");
+            alert("You have not enough balance to save");
         }
 
     }
     else {
-        alert("string or negative");
+        alert("Please enter any positive value here");
     }
 
 })
