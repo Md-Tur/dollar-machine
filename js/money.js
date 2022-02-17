@@ -1,29 +1,44 @@
-// expense part calculation
+// total cost calculation function
 
-function expenseCalculation() {
+function expenseCalculation(foodExpense, rentExpense, clotheExpense) {
+    const food = document.getElementById(foodExpense);
+    const foodCost = parseFloat(food.value);
 
+    const rent = document.getElementById(rentExpense);
+    const rentCost = parseFloat(rent.value);
+
+    const clothes = document.getElementById(clotheExpense);
+    const clothesCost = parseFloat(clothes.value);
+
+    return foodCost + rentCost + clothesCost;
 }
+
+// total expense & new balance value set
 
 document.getElementById('calculate-button').addEventListener('click', function () {
     const income = document.getElementById('total-income');
     const totalIncome = parseFloat(income.value);
-    console.log(totalIncome);
-
-    const food = document.getElementById('food-cost');
-    const foodCost = parseFloat(food.value);
-    console.log(foodCost);
-
-    const rent = document.getElementById('rent-cost');
-    const rentCost = parseFloat(rent.value);
-    console.log(rentCost);
-
-    const clothes = document.getElementById('clothes-cost');
-    const clothesCost = parseFloat(clothes.value);
-    console.log(clothesCost);
+    let totalCost = expenseCalculation('food-cost', 'rent-cost', 'clothes-cost');
+    const remainingBalance = totalIncome - totalCost;
+    const expenses = document.getElementById('expenses');
+    expenses.innerText = totalCost;
+    const balance = document.getElementById('balance');
+    balance.innerText = remainingBalance;
 })
 
 // save part calculation
 
 document.getElementById('save-button').addEventListener('click', function () {
-    console.log('click');
+    let totalCost = expenseCalculation('food-cost', 'rent-cost', 'clothes-cost');
+    const income = document.getElementById('total-income');
+    const totalIncome = parseFloat(income.value);
+    const remainingBalance = totalIncome - totalCost;
+    const savingsPercent = document.getElementById('savings-percent');
+    const saved = parseFloat(savingsPercent.value);
+    const finalSaving = (totalIncome * saved) / 100;
+    let moneySaved = document.getElementById('savings');
+    moneySaved.innerText = finalSaving;
+    const afterSaving = remainingBalance - finalSaving;
+    const savingsText = document.getElementById('after-savings');
+    savingsText.innerText = afterSaving;
 })
