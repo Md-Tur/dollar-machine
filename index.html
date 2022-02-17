@@ -46,17 +46,22 @@
                 <!-- this is for calculation part -->
 
                 <div style="height: 815px; width: 705px;" class="bg-light ms-3 me-5">
+
                     <!-- income part -->
+
                     <div>
                         <h3 class="text-center pt-5 pb-3">Income</h3>
                         <div class="d-flex justify-content-center">
                             <label>
                                 Income:
                             </label>
-                            <input class="ms-2 rounded" type="text">
+                            <input id="total-income" class="ms-2 rounded" type="text"
+                                placeholder="Enter your total earning">
                         </div>
                     </div>
+
                     <!-- Expense part -->
+
                     <div>
                         <div>
                             <h3 class="text-center pt-3 pb-3">Expenses</h3>
@@ -64,22 +69,23 @@
                                 <label>
                                     Food:
                                 </label>
-                                <input class="ms-2 rounded" type="text">
+                                <input id="food-cost" class="ms-2 rounded" type="text" placeholder="Enter cost of food">
                             </div>
                             <div class="d-flex justify-content-center mt-3 mb-3">
                                 <label>
                                     Rent:
                                 </label>
-                                <input class="ms-3 rounded" type="text">
+                                <input id="rent-cost" class="ms-3 rounded" type="text" placeholder="Enter cost of rent">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <label>
                                     Clothes:
                                 </label>
-                                <input class="ms-1 rounded" type="text">
+                                <input id="clothes-cost" class="ms-1 rounded" type="text"
+                                    placeholder="Enter cost of clothes">
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <button
+                                <button id="calculate-button"
                                     class="justify-content-center bg-info text-white rounded  px-5 py-1">Calculate</button>
                             </div>
                         </div>
@@ -93,6 +99,9 @@
                     <div class="text-center pt-3 pb-3">
                         <h3>Balance: <span>4500</span></h3>
                     </div>
+
+                    <!-- saving part -->
+
                     <div class="d-flex justify-content-center">
                         <label>
                             Save:
@@ -101,7 +110,7 @@
                         <label class="ms-3 me-3">
                             %
                         </label>
-                        <button class="bg-info text-white rounded px-5 py-1">Save</button>
+                        <button id="save-button" class="bg-info text-white rounded px-5 py-1">Save</button>
                     </div>
 
                     <div class="text-center pt-3">
