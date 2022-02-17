@@ -10,7 +10,12 @@ function expenseCalculation(foodExpense, rentExpense, clotheExpense) {
     const clothes = document.getElementById(clotheExpense);
     const clothesCost = parseFloat(clothes.value);
 
-    return foodCost + rentCost + clothesCost;
+    if (foodCost > 0 && rentCost > 0 && clothesCost > 0) {
+        return foodCost + rentCost + clothesCost;
+    }
+    else {
+        return -1;
+    }
 }
 
 // total expense & new balance value set
@@ -19,11 +24,32 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const income = document.getElementById('total-income');
     const totalIncome = parseFloat(income.value);
     let totalCost = expenseCalculation('food-cost', 'rent-cost', 'clothes-cost');
-    const remainingBalance = totalIncome - totalCost;
-    const expenses = document.getElementById('expenses');
-    expenses.innerText = totalCost;
-    const balance = document.getElementById('balance');
-    balance.innerText = remainingBalance;
+    if (!isNaN(totalIncome) && !isNaN(totalCost)) {
+        if (totalIncome > 0 && totalCost != -1) {
+            if (totalIncome >= totalCost) {
+                const remainingBalance = totalIncome - totalCost;
+                const expenses = document.getElementById('expenses');
+                expenses.innerText = totalCost;
+                const balance = document.getElementById('balance');
+                balance.innerText = remainingBalance;
+            }
+            else {
+                console.log("big")
+                alert("big");
+            }
+
+        }
+        else {
+            alert("negative");
+            console.log("negative");
+        }
+
+    }
+    else {
+        alert("string");
+        console.log("string");
+    }
+
 })
 
 // save part calculation
